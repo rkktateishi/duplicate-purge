@@ -10,10 +10,6 @@ html(lang="en")
       each val in short_list
         ="'"+val+"',"
       | ];
-      | var long_list = [
-      each val in long_list
-        ="'"+val+"',"
-      | ];
 
   body#page-top.index
     nav#mainNav.navbar.navbar-default.navbar-fixed-top.navbar-custom
@@ -30,8 +26,6 @@ html(lang="en")
                a(href="#page-top")
              li.page-scroll
                a(href="javascript:tab('#simple-list')") Simple Test
-             li.page-scroll
-               a(href="javascript:tab('#complex-list')") Complex Test
              li.page-scroll
                a(href="javascript:tab('#custom-list')") Custom List
     header
@@ -59,23 +53,6 @@ html(lang="en")
             each val in short_list
               li.col-xs-4.list-group-item= val
           ul.text-center.list-unstyled#new_short(style="display:none;")
-    section#complex-list(style="display:none")
-      .container
-        .row
-          .col-lg-12.text-center
-            h1.text-center="Long List of " + long_list.length
-            button#strip-complex.btn.btn-default.btn-large.text-center Strip Duplicates
-            #long_info(style="display:none;")
-              h3 Time to Complete: 
-                span#long_time 
-              h3 Unique Results: 
-                span#long_length
-            hr
-        .row
-          ul.text-center.list-unstyled#long_list
-            each val in long_list
-              li.col-xs-4.list-group-item= val
-          ul.text-center.list-unstyled#new_long(style="display:none;")
     section#custom-list(style="display:none")
       .container
         .row
