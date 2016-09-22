@@ -1,0 +1,8 @@
+{
+  "name": "duplicate-purge",
+  "version": "0.0.1",
+  "dependencies": {
+    "express": "~4.14",
+    "jade": "~1.11.0"
+  }
+}

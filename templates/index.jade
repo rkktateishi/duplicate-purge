@@ -1,0 +1,101 @@
+doctype html
+html(lang="en")
+  head
+    title= "Duplicate Purge"
+    link(href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css" rel="stylesheet")
+    link(href="/static/css/freelancer.css" type="text/css" rel="stylesheet")
+    link(href="/static/font-awesome/css/font-awesome.min.css" type="text/css" rel="stylesheet")
+    script(type="text/javascript")
+      | var short_list = [
+      each val in short_list
+        ="'"+val+"',"
+      | ];
+      | var long_list = [
+      each val in long_list
+        ="'"+val+"',"
+      | ];
+
+  body#page-top.index
+    nav#mainNav.navbar.navbar-default.navbar-fixed-top.navbar-custom
+      .container
+        .navbar-header.page-scroll
+          button.navbar-toggle(type="button" data-toggle="collapse" data-target="#navbar-collapse")
+            span.sr-only Toggle Nav
+            | Menu
+            i.fa.fa-bars
+          a.navbar-brand(href="#page-top") Welcome ChefSteps
+        .collapse.navbar-collapse#navbar-collapse
+          ul.nav.navbar-nav.navbar-right
+            li.hidden
+               a(href="#page-top")
+             li.page-scroll
+               a(href="javascript:tab('#simple-list')") Simple Test
+             li.page-scroll
+               a(href="javascript:tab('#complex-list')") Complex Test
+             li.page-scroll
+               a(href="javascript:tab('#custom-list')") Custom List
+    header
+      .container
+        .row
+          .col-lg-12
+            .intro-text
+              span.name Duplicate Purge
+              hr.star-light
+              span.skills Strip Duplicates from a list
+    section#simple-list
+      .container
+        .row
+          .col-lg-12.text-center
+            h1.text-center="Simple List of " + short_list.length
+            button#strip-simple.btn.btn-default.btn-large.text-center Strip Duplicates
+            #short_info(style="display:none;")
+              h3 Time to Complete: 
+                span#short_time 
+              h3 Unique Results: 
+                span#short_length
+            hr
+        .row
+          ul.text-center.list-unstyled#short_list
+            each val in short_list
+              li.col-xs-4.list-group-item= val
+          ul.text-center.list-unstyled#new_short(style="display:none;")
+    section#complex-list(style="display:none")
+      .container
+        .row
+          .col-lg-12.text-center
+            h1.text-center="Long List of " + long_list.length
+            button#strip-complex.btn.btn-default.btn-large.text-center Strip Duplicates
+            #long_info(style="display:none;")
+              h3 Time to Complete: 
+                span#long_time 
+              h3 Unique Results: 
+                span#long_length
+            hr
+        .row
+          ul.text-center.list-unstyled#long_list
+            each val in long_list
+              li.col-xs-4.list-group-item= val
+          ul.text-center.list-unstyled#new_long(style="display:none;")
+    section#custom-list(style="display:none")
+      .container
+        .row
+          .col-lg-12.text-center
+            h1.text-center Custom List
+            button#strip-custom.btn.btn-default.btn-large.text-center Strip Duplicates
+            #custom_info(style="display:none;")
+              h3 Original Length: 
+                span#original_length
+              h3 Time to Complete: 
+                span#custom_time 
+              h3 Unique Results: 
+                span#custom_length
+            hr
+        .row
+          .col-lg-12.text-center
+            p Please use a simple comma deliminated list
+            textarea#my_list(placeholder="example@test.com,test@test.com", style="width:100%" rows="15")
+          ul.text-center.list-unstyled#new_custom(style="display:none;")
+
+    script(src="https://code.jquery.com/jquery-3.1.0.min.js" type="text/javascript")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript")
+    script(src="/static/js/base.js" type="text/javascript")
